@@ -10,6 +10,17 @@
       "numero": "25",
       "estado": "RJ",
       "cidade": "Rio de Janeiro"
+    },
+    {
+      "id": "fee.rocha@hotmail.com",
+      "email": "fee.rocha@hotmail.com",
+      "nome": "Felipe Rocha",
+      "senha": "123",
+      "rua": "Small Heath",
+      "cep": "09655000",
+      "numero": "929",
+      "estado": "Old England",
+      "cidade": "Birmighan"
     }
   ],
   "produto": [
