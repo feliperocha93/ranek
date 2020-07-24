@@ -21,6 +21,30 @@
       "numero": "929",
       "estado": "Old England",
       "cidade": "Birmighan"
+    },
+    {
+      "id": "cabeça@hotmail.com",
+      "nome": "Cabeça de pica",
+      "email": "cabeça@hotmail.com",
+      "senha": "123",
+      "cep": "09570-430",
+      "rua": "Rua Adonel de Souza Maciel",
+      "numero": "929",
+      "bairro": "São José",
+      "cidade": "São Caetano do Sul",
+      "estado": "SP"
+    },
+    {
+      "id": "filho@iteris.com",
+      "nome": "Filho",
+      "email": "filho@iteris.com",
+      "senha": "666",
+      "cep": "09655-000",
+      "rua": "Avenida do Taboão",
+      "numero": "777",
+      "bairro": "Taboão",
+      "cidade": "São Bernardo do Campo",
+      "estado": "SP"
     }
   ],
   "produto": [
