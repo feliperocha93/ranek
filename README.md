@@ -1,24 +1,19 @@
-# ranek
+# Ranek
 
-## Project setup
-```
-yarn install
-```
+Projeto didático do [Curso de Vuejs](https://www.origamid.com/curso/vue-js-completo) da [Origamid](https://origamid.com).
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Principais tecnologias utilizadas no projeto:
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- [Vue](https://vuejs.org/)
+- [Vue-cli](https://cli.vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/)
+- [Vue-router](https://router.vuejs.org/)
+- [Axios](https://github.com/axios/axios)
+- [Json-server](https://www.npmjs.com/package/json-server)
+- [Css-grid](https://www.w3schools.com/css/css_grid.asp)
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Como rodar o projeto na sua máquina:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone o projeto na sua máquina: `git clone https://github.com/feliperocha93/ranek.git`
+2. Instale as dependências: `yarn install`
+3. Rode o projeto: `yarn-serve`
