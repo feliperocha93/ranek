@@ -11,7 +11,7 @@
         <p class="preco">{{ produto.preco | numeroPreco }}</p>
         <p class="descricao">{{ produto.descricao }}</p>
         <button class="btn" v-if="produto.vendido === 'false'">Comprar</button>
-        <button class="btn" disabled v-else></button>
+        <button class="btn" disabled v-else>Produto vendido</button>
       </div>
     </div>
     <PaginaCarregando v-else />
@@ -29,7 +29,7 @@ export default {
   props: ["id"],
   methods: {
     getProdutos() {
-      api.get(`/produto/${this.id}`).then(({ data }) => (this.produto = data));
+      api.get(`/produtos/${this.id}`).then(({ data }) => (this.produto = data));
     },
   },
   created() {
