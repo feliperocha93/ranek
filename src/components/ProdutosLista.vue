@@ -47,7 +47,7 @@ export default {
   computed: {
     url() {
       const query = serialize(this.$route.query);
-      return `/produto?_limit=${this.produtosPorPagina}${query}`;
+      return `/produtos?_limit=${this.produtosPorPagina}${query}`;
     },
   },
   methods: {
