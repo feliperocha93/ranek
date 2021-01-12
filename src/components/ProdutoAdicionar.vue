@@ -23,7 +23,8 @@ export default Vue.extend({
       nome: '',
       preco: '',
       fotos: null,
-      descricao: ''
+      descricao: '',
+      vendido: "false"
     }
   }),
   methods: {

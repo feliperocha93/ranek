@@ -3,7 +3,7 @@
     <transition mode="out-in">
       <div v-if="produtos && produtos.length" class="produtos" key="produtos">
         <div class="produto" v-for="(produto, index) in produtos" :key="index">
-          <router-link to="/">
+          <router-link :to="`/produtos/${produto.id}`">
             <img
               v-if="produto.fotos"
               :src="produto.fotos[0].src"
