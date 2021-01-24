@@ -3,7 +3,7 @@ export function serialize(obj) {
   for (let key in obj) {
     queystring += `&${key}=${obj[key]}`;
   }
-  return "/produtos?_limit=10" + queystring;
+  return "/produto?_limit=10" + queystring;
 }
 
 export function mapFields(options) {

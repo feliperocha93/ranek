@@ -1,14 +1,19 @@
 <template>
   <form class="adicionar-produto">
     <label for="nome">Nome</label>
-    <input id="nome" name="nome" type="text" v-model="produto.nome">
+    <input id="nome" name="nome" type="text" v-model="produto.nome" />
     <label for="preco">Preço (R$)</label>
-    <input id="preco" name="preco" type="number" v-model="produto.preco">
+    <input id="preco" name="preco" type="number" v-model="produto.preco" />
     <label for="fotos">Fotos</label>
-    <input id="fotos" name="fotos" type="file" ref="fotos">
+    <input id="fotos" name="fotos" type="file" ref="fotos" />
     <label for="descricao">Descrição</label>
     <textarea id="descricao" name="descricao" v-model="produto.descricao" />
-    <input class="btn" type="button" value="Adicionar Produto" @click.prevent="adicionarProduto">
+    <input
+      class="btn"
+      type="button"
+      value="Adicionar Produto"
+      @click.prevent="adicionarProduto"
+    />
   </form>
 </template>
 
@@ -20,12 +25,12 @@ export default Vue.extend({
   name: "ProdutoAdicionar",
   data: () => ({
     produto: {
-      nome: '',
-      preco: '',
+      nome: "",
+      preco: "",
       fotos: null,
-      descricao: '',
-      vendido: "false"
-    }
+      descricao: "",
+      vendido: "false",
+    },
   }),
   methods: {
     formatarProduto() {
@@ -33,11 +38,11 @@ export default Vue.extend({
     },
     adicionarProduto() {
       this.formatarProduto();
-      api.post("/produtos", this.produto).then(() => {
-        this.$store.dispatch("getUsuarioProdutos")
-      })
-    }
-  }
+      api.post("/produto", this.produto).then(() => {
+        this.$store.dispatch("getUsuarioProdutos");
+      });
+    },
+  },
 });
 </script>
 
