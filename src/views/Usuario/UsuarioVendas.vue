@@ -1,11 +1,15 @@
 <template>
   <section>
     <div v-if="vendas">
-      <div class="produtos-wrapper" v-for="(venda, index) in vendas" :key="index">
+      <div
+        class="produtos-wrapper"
+        v-for="(venda, index) in vendas"
+        :key="index"
+      >
         <ProdutoItem v-if="venda.produto" :produto="venda.produto">
           <p class="vendedor">
             <span>Comprador: </span>
-            {{venda.comprador_id}}
+            {{ venda.comprador_id }}
           </p>
         </ProdutoItem>
         <div class="entrega">
@@ -22,38 +26,38 @@
 </template>
 
 <script>
-import ProdutoItem from '@/components/ProdutoItem.vue';
-import { api } from '@/service.js';
-import { mapState } from 'vuex';
+import ProdutoItem from "@/components/ProdutoItem.vue";
+import { api } from "@/service.js";
+import { mapState } from "vuex";
 
 export default {
   name: "UsuarioVendas",
   components: {
-    ProdutoItem
+    ProdutoItem,
   },
   data: () => ({
-    vendas: null
+    vendas: null,
   }),
   computed: {
-    ...mapState(["usuario", "login"])
+    ...mapState(["usuario", "login"]),
   },
   methods: {
     getVendas() {
-      api.get(`transacao?vendedor_id=${this.usuario.id}`).then((response) => {
+      api.get(`transacao?tipo=vendedor_id`).then((response) => {
         this.vendas = response.data;
-      })
-    }
+      });
+    },
   },
   watch: {
     login() {
       this.getVendas();
-    }
+    },
   },
   created() {
     if (this.login) {
       this.getVendas();
     }
-  }
+  },
 };
 </script>
 
@@ -71,7 +75,7 @@ export default {
   grid-template-columns: minmax(100px, 200px) 1fr;
   grid-gap: 20px;
   margin-bottom: 60px;
-} 
+}
 
 h2 {
   margin-bottom: 20px;

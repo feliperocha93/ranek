@@ -1,9 +1,13 @@
 <template>
   <section>
     <div v-if="compras">
-      <div class="produtos-wrapper" v-for="(compra, index) in compras" :key="index">
+      <div
+        class="produtos-wrapper"
+        v-for="(compra, index) in compras"
+        :key="index"
+      >
         <ProdutoItem v-if="compra.produto" :produto="compra.produto">
-          <p class="vendedor"><span>Vendedor </span>{{compra.vendedor_id}}</p>
+          <p class="vendedor"><span>Vendedor </span>{{ compra.vendedor_id }}</p>
         </ProdutoItem>
       </div>
     </div>
@@ -11,38 +15,38 @@
 </template>
 
 <script>
-import ProdutoItem from '@/components/ProdutoItem.vue';
-import { api } from '@/service.js';
-import { mapState } from 'vuex';
+import ProdutoItem from "@/components/ProdutoItem.vue";
+import { api } from "@/service.js";
+import { mapState } from "vuex";
 
 export default {
   name: "UsuarioCompras",
   components: {
-    ProdutoItem
+    ProdutoItem,
   },
   data: () => ({
-    compras: null
+    compras: null,
   }),
   computed: {
-    ...mapState(["usuario", "login"])
+    ...mapState(["usuario", "login"]),
   },
   methods: {
     getCompras() {
-      api.get(`transacao?comprador_id=${this.usuario.id}`).then((response) => {
+      api.get(`transacao?tipo=comprador_id`).then((response) => {
         this.compras = response.data;
-      })
-    }
+      });
+    },
   },
   watch: {
     login() {
       this.getCompras();
-    }
+    },
   },
   created() {
     if (this.login) {
       this.getCompras();
     }
-  }
+  },
 };
 </script>
 
