@@ -60,6 +60,18 @@ export default {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 500px) {
+  .produto {
+    grid-template-columns: 1fr;
+  }
+  .fotos {
+    grid-row: 2;
+  }
+  .info {
+    position: initial;
+  }
+}
+
 .preco {
   color: #e80;
   font-weight: bold;
