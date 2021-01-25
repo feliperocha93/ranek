@@ -37,7 +37,7 @@ export const api = {
     return axios.post(`${url}/jwt-auth/v1/token`, body);
   },
   validateToken() {
-    return axios.post(`${url}/jwt-auth/v1/token/validate`);
+    return axiosInstance.post(`${url}/jwt-auth/v1/token/validate`);
   },
 };
 

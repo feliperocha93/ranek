@@ -76,6 +76,7 @@ export default new Vuex.Store({
         cidade: "",
         estado: "",
       });
+      window.localStorage.removeItem("token");
       context.commit("UPDATE_LOGIN", false);
     },
   },

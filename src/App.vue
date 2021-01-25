@@ -13,12 +13,23 @@
 <script>
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import { api } from "@/service.js";
 
 export default {
   name: "App",
   components: {
     TheHeader,
     TheFooter,
+  },
+  async created() {
+    if (window.localStorage.token) {
+      try {
+        await api.validateToken();
+        this.$store.dispatch("getUsuario");
+      } catch {
+        window.localStorage.removeItem("token");
+      }
+    }
   },
 };
 </script>

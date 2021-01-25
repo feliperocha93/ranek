@@ -2,20 +2,22 @@
   <section>
     <h2>Endereço de Envio</h2>
     <UsuarioForm>
-      <button @click.prevent="finalizarCompra" class="btn">Finalizar Compra</button>
+      <button @click.prevent="finalizarCompra" class="btn">
+        Finalizar Compra
+      </button>
     </UsuarioForm>
   </section>
 </template>
 
 <script>
-import UsuarioForm from '@/components/UsuarioForm.vue';
-import { api } from '@/service.js';
-import { mapState } from 'vuex';
+import UsuarioForm from "@/components/UsuarioForm.vue";
+import { api } from "@/service.js";
+import { mapState } from "vuex";
 
 export default {
   name: "FinalizarCompra",
   components: {
-    UsuarioForm
+    UsuarioForm,
   },
   props: ["produto"],
   computed: {
@@ -32,23 +34,21 @@ export default {
           bairro: this.usuario.bairro,
           cidade: this.usuario.cidade,
           estado: this.usuario.estado,
-        }
-      }
-    }
+        },
+      };
+    },
   },
   methods: {
     criarTransacao() {
       return api.post("/transacao", this.compra).then(() => {
-        this.$router.push({ name: "compras" })
+        this.$router.push({ name: "compras" });
       });
     },
     async criarUsuario() {
       try {
         await this.$store.dispatch("criarUsuario", this.$store.state.usuario);
-        await this.$store.dispatch(
-          "getUsuario",
-          this.$store.state.usuario.email
-        );
+        await this.$store.dispatch("logarUsuario", this.$store.state.usuario);
+        await this.$store.dispatch("getUsuario");
         await this.criarTransacao();
       } catch (error) {
         console.log(error);
@@ -60,8 +60,8 @@ export default {
       } else {
         this.criarUsuario();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
