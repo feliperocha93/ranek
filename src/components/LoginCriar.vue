@@ -38,7 +38,7 @@ export default {
         );
         this.$router.push({ name: "usuario" });
       } catch (error) {
-        this.erros.push(error.response.data.message);
+        this.erros.push(error);
       }
     },
   },

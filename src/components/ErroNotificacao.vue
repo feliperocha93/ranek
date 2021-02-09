@@ -1,7 +1,7 @@
 <template>
   <transition>
     <ul class="erro" v-if="erros.length > 0">
-      <li v-for="erro in erros" :key="erro" v-html="erro"></li>
+      <li v-for="erro in erros" :key="String(erro)" v-html="erro"></li>
     </ul>
   </transition>
 </template>

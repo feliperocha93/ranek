@@ -49,11 +49,16 @@ export default Vue.extend({
 
       return form;
     },
-    adicionarProduto() {
+    async adicionarProduto(event) {
       const produto = this.formatarProduto();
-      api.post("/produto", produto).then(() => {
-        this.$store.dispatch("getUsuarioProdutos");
-      });
+
+      const btn = event.currentTarget;
+      btn.value = "Adicionando...";
+      btn.setAtrtribute("disabled", "");
+      await api.post("/produto", produto);
+      await this.$store.dispatch("getUsuarioProdutos");
+      btn.value = "Adicionar Produto";
+      btn.removeAtrtribute("disabled");
     },
   },
 });

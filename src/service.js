@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:10004/wp-json";
+const url = "http://felipe-ranek.000webhostapp.com/wp-json";
 const baseURL = `${url}/api`;
 
 const axiosInstance = axios.create({
@@ -34,7 +34,8 @@ export const api = {
     return axiosInstance.delete(endpoint);
   },
   login(body) {
-    return axios.post(`${url}/jwt-auth/v1/token`, body);
+    const login = axios.post(`${url}/jwt-auth/v1/token`, body);
+    return login;
   },
   validateToken() {
     return axiosInstance.post(`${url}/jwt-auth/v1/token/validate`);
